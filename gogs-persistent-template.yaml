@@ -89,11 +89,11 @@ objects:
               memory: 512Mi
           volumeMounts:
           - mountPath: /var/lib/pgsql/data
-            name: gogs-postgres-data
+            name: gogs-pdata
         volumes:
-        - name: gogs-postgres-data
+        - name: gogs-pdata
           persistentVolumeClaim:
-            claimName: gogs-postgres-data
+            claimName: gogs-pdata
     triggers:
     - imageChangeParams:
         automatic: true
@@ -258,7 +258,7 @@ objects:
 - kind: PersistentVolumeClaim
   apiVersion: v1
   metadata:
-    name: gogs-postgres-data
+    name: gogs-pdata
     labels:
       app: ${APPLICATION_NAME}
   spec:
